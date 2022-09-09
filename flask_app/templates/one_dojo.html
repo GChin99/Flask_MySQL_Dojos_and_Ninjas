@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Dojo</title>
+</head>
+<body>
+    <h1>{{one_dojo.dojo_name}} Ninjas</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for one_ninja in one_dojo.ninjas %}
+                <tr>
+                    <td>{{one_ninja.first_name}}</td>
+                    <td>{{one_ninja.last_name}}</td>
+                    <td>{{one_ninja.age}}</td>
+        <!-- Update and  delete is still in the for loop becuase we would want to target a specific instance  -->
+            <!------------THE U out of CRUD (Update)--------------->
+                    <td><a href="/edit_ninja/{{one_ninja.id}}">Update</a>
+        <!--------------THE D out of CRUD(delete)------------------- -->
+                <!-- Zack would like to use a form to delete rather than a link (a href="") -->
+                    <form action="/delete/{{one_ninja.id}}" method="post">
+                    <input type="submit" value="Delete">
+                </form></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/">Home</a>
+</body>
+</html>

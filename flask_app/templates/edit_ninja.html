@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Ninja</title>
+</head>
+<body>
+    <h1>Edit Ninja</h1>
+    <!-- ------------------The U out of CRUD(Update)------------------------------------ -->
+    <form action="/update_ninja/{{one_ninja.id}}" method="post">
+        <label>First Name:</label>
+        <!-- adding the value attribute below will add that "value" into the text box -->
+        <input type="text" name="first_name" value="{{one_ninja.first_name}}">
+        <label>Last Name:</label>
+        <input type="text" name="last_name" value="{{one_ninja.last_name}}">
+        <label>Age:</label>
+        <input type="text" name="age" value="{{one_ninja.age}}">
+        <input type="submit" value="Update Ninja">
+    </form>
+    <a href="/dojo/{{one_ninja.id}}"></a>
+    <a href="/">Home</a>
+</body>
+</html>
