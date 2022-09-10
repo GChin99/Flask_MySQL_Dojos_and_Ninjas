@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Dojos</title>
-<style>
+<!-- <style>
 .container {
     width: 1000px;
     display: flex;
@@ -16,31 +17,29 @@
     width: 200px;
     border: 2px solid black;
 }
-</style>
+</style> -->
 </head>
 <body>
     <div class="container">
         <!-- Create new Dojos -->
-        <div class="newDojo">
-            <h1>New Dojo</h1>
-            <form action="/create/dojo" method="post">
-                <div class="form">
+        <div class="d-flex justify-content-around">
+            <form action="/create/dojo" method="post" class="col-4 bg-dark p-4 my-5 text-light">
+                <h1 class="text-center text-primary">New Dojo</h1>
+                <div class="form-group">
                     <label>Name:</label>
-                    <input type="text" name="dojo_name">
+                    <input type="text" name="dojo_name" class="form-control">
                 </div>
-                <input type="submit" value="Create Dojo">
+                <input type="submit" value="Create Dojo" class="btn btn-primary btn-outline-dark">
             </form>
-        </div>
         <!-- Show all the Dojos -->
-        <div class="allDojos">
-            <h1>All Dojos</h1>
-            <div class="box">
+            <div class="col-4 bg-dark text-light text-center my-5 p-4">
+                <h1 class="text-primary">All Dojos</h1>
                 {% for one_dojo in all_the_dojos %}
-                    <p><a href="/dojo/{{one_dojo.id}}">{{one_dojo.dojo_name}}</a></p>
+                <p><a href="/dojo/{{one_dojo.id}}"  class="text-warning">{{one_dojo.dojo_name}}</a></p>
                 {% endfor %}
             </div>
         </div>
-        <a href="/ninja">Add Ninja</a>
+        <a href="/ninja" class="text-center mx-auto">Add Ninja</a>
     </div>
 </body>
 </html>

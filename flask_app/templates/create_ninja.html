@@ -4,28 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Create Ninja</title>
 </head>
 <body>
-    <h1>New Ninja</h1>
-    <form action="/create_ninja" method ="post">
+    <form action="/create_ninja" method ="post" class="col-4 bg-dark p-4 my-5 mx-auto text-light">
+        <h1 class="text-center text-primary">New Ninja</h1>
         <!-- we only need to input the first_name, last_name, and age.  We have set defaults for ID, created_at, and updated_at -->
-        <label>First Name</label>
-        <input type="text" name="first_name">
-        <label>Last Name</label>
-        <input type="text" name="last_name">
-        <label>Age</label>
-        <input type="text" name="age">
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" name="first_name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" name="last_name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Age</label>
+            <input type="text" name="age" class="form-control">
+        </div>
         <!-- We are creating a drop down selection to choose which Dojo the ninja will join -->
         <!-- We need to create a for loop in our select tag to iterate though all of our dojos -->
-        <select name="dojo_id">
+        <div class="form-group">
+            <label>Dojo:</label>
+            <select name="dojo_id" class="form-control">
             {% for one_dojo in all_the_dojos %}
             <!-- Note that we are passing the dojo id into the value -->
-        <option value="{{one_dojo.id}}">{{one_dojo.dojo_name}}</option>
-
-        {% endfor %}
-        </select>
-        <input type="submit" value="Create Ninja">
+            <option value="{{one_dojo.id}}">{{one_dojo.dojo_name}}</option>
+            {% endfor %}
+            </select>
+        </div>
+        <input type="submit" value="Create Ninja" class="btn btn-primary btn-outline-dark">
     </form>
     <a href="/">Home</a>
 </body>

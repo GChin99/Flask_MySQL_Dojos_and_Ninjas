@@ -2,8 +2,8 @@
 # All @app.route functions into the controller file
 # For this project, we are going with dojos 
 
-from flask_app import app
 from flask import Flask, render_template, request, redirect#, session
+from flask_app import app
 from flask_app.models.dojo import Dojo #from the models folder, we are importing our Dojo class 
 
 
@@ -37,10 +37,12 @@ def create_dojo():
 # ---------------------The R out of CRUD (read one)-----------------------
 #This is the app route which will take someone from the main page to the specific Dojo page
 @app.route("/dojo/<int:id>") 
-def one_dojo(id):
+def show_dojo(id):
     data = {
         "id": id #this 'id' Key (left side) in data dictionary must be named to match the placeholder in the query. (models folder)
     }
     # ****************Parsing Data into associated Classes**********************
-    a_dojo = Dojo.get_one_with_ninjas(data) #new classmethod that JOINS the two SQL tables
-    return render_template("one_dojo.html", one_dojo = a_dojo)
+    # a_dojo = Dojo.get_one_with_ninjas(data) #new classmethod that JOINS the two SQL tables
+    # return render_template("one_dojo.html", one_dojo = a_dojo)
+    # We can rewrite the two lines above into one line. 
+    return render_template("one_dojo.html", one_dojo = Dojo.get_one_with_ninjas(data))

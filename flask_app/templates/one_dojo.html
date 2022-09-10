@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>One Dojo</title>
 </head>
 <body>
-    <h1>{{one_dojo.dojo_name}} Ninjas</h1>
-    <table>
+    <div class="card-body">
+    <!-- one_dojo is the assigned variable from the read one controller method -->
+    <!-- .dojo_name is from the Class constructor -->
+    <h1 class="card-title text-primary">{{one_dojo.dojo_name}} Ninjas</h1>
+    <table class="table table-info">
         <thead>
             <tr>
                 <th>First Name</th>
@@ -35,6 +39,6 @@
             {% endfor %}
         </tbody>
     </table>
-    <a href="/">Home</a>
+    <a href="/" class="text-center mx-auto">Home</a>
 </body>
 </html>

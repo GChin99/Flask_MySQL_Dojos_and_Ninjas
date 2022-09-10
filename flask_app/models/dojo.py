@@ -34,7 +34,7 @@ class Dojo:
         # Iterate over the db results and create instances of dojos with cls.
         for one_dojo in results:
             all_dojos.append(cls(one_dojo))
-        return all_dojos
+        return all_dojos #return the list of appended instances of dojos
 
 # ------------------------The C out of CRUD(create)--------------------------------------
 #   We use class method to create new dojo instances in our database 
@@ -74,5 +74,5 @@ class Dojo:
             }
             ninja_obj = ninja.Ninja(data) #we are creating a ninja instance by bring the Ninja class over to the dojo
             one_dojo.ninjas.append(ninja_obj)
-            # We are saying one_animal has an attribue called toys and we are appending the toy instance we just crated to the empty list ninjas 
+            # We are saying one_dojo has an attribue called dojo and we are appending the ninja instance we just crated to the empty list ninjas 
         return one_dojo
